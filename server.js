@@ -24,7 +24,6 @@ function findUser(socketID = socket.id){
 }
 
 io.on('connection', socket => {
-    console.log("HEY!");
 	socket.on('new-user', userData => {
 		if (!findUser(socket.id)){
 			let user = { name: userData.name, id: socket.id, connectionTime: userData.connectionTime };

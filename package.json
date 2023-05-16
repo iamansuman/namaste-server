@@ -1,0 +1,30 @@
+{
+  "name": "namaste-server",
+  "version": "1.0.0",
+  "description": "Backend for Namaste",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "nodemon -r dotenv/config server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamansuthecoda/namaste-server.git"
+  },
+  "keywords": [
+    "Namaste"
+  ],
+  "author": "Ansuman Dhar",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/iamansuthecoda/namaste-server/issues"
+  },
+  "homepage": "https://github.com/iamansuthecoda/namaste-server#readme",
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "socket.io": "^4.6.1"
+  }
+}

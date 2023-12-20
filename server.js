@@ -2,7 +2,7 @@ if (process.env.APP_STATE != 'DEV') console.log = function() {}
 
 const PORT = Number(process.env.PORT);
 
-const approvedFrontEnd = (process.env.APP_STATE == 'DEV') ? "http://localhost:8081" : "http://github.io" ;
+const approvedFrontEnd = (process.env.APP_STATE == 'DEV') ? "http://localhost:8081" : "https://iamansuthecoda.github.io" ;
 
 const { createServer } = require('http');
 const { Server } = require('socket.io');

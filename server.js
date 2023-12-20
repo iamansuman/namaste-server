@@ -6,9 +6,12 @@ const clientList = require('./approvedFrontEnds.json');
 const approvedFrontEnds = [];
 for (i=0; i<clientList.length; i++) approvedFrontEnds.push(clientList[i]);
 
+const { createServer } = require('http');
 const { Server } = require('socket.io');
 
-const io = new Server(PORT, {
+const httpServer = createServer();
+
+const io = new Server(httpServer, {
     cors: { origin: approvedFrontEnds },
 	maxHttpBufferSize: 5e7,	//50MB
 	connectionStateRecovery: {
@@ -64,3 +67,5 @@ io.on('connection', socket => {
 		}
 	});
 });
+
+httpServer.listen(PORT);

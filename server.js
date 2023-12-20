@@ -2,9 +2,7 @@ if (process.env.APP_STATE != 'DEV') console.log = function() {}
 
 const PORT = Number(process.env.PORT);
 
-const clientList = require('./approvedFrontEnds.json');
-const approvedFrontEnds = [];
-for (i=0; i<clientList.length; i++) approvedFrontEnds.push(clientList[i]);
+const approvedFrontEnd = (process.env.APP_STATE == 'DEV') ? "http://localhost:8081" : "http://github.io" ;
 
 const { createServer } = require('http');
 const { Server } = require('socket.io');
@@ -12,7 +10,7 @@ const { Server } = require('socket.io');
 const httpServer = createServer();
 
 const io = new Server(httpServer, {
-    cors: { origin: approvedFrontEnds },
+    cors: { origin: approvedFrontEnd },
 	maxHttpBufferSize: 5e7,	//50MB
 	connectionStateRecovery: {
 		maxDisconnectionDuration: 2 * 60 * 1000,
